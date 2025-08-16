@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation>
+    <chain id="user.update">
+        <!-- 角色数据权限校验 -->
+        <node language="Groovy" order="1" message="校验失败">
+            <![CDATA[
+            def workNo = param.workNo;
+            def roleService = beanContext.getBean("roleService");
+            def roleList = roleService.getRoleList(workNo);
+            def flag = false;
+            // 角色权限校验
+            if(roleList != null || roleList.size() > 0) {
+               if("admin" in roleList){
+                // 获取用户数据权限
+                def dataRoleList = roleService.getDataRoleList(workNo);
+                return "update" in dataRoleList;
+               }
+            }
+            return flag;
+            ]]>
+        </node>
+        <!-- 再使用qle对修改的内容进行校验 -->
+        <node language="GuardScript" order="2" message="校验失败">
+            <![CDATA[
+            if (NotNull(param.name) == false) {return false;}
+            if (NotNull(param.age) == false) {return false;}
+            if (NotNull(param.sex) == false) {return false;}
+            if (NotNull(param.address) == false) {return false;}
+            if (InClosedRange(18, 60, param.age) == false) {return false;}
+            roleList = InvokeBeanMethod("roleService", "getDataRoleList", param.workNo);
+            if(roleList.size() == 0) {return false;}
+            return param.address == InvokeBeanMethod("addressService", "getAddress");
+            ]]>
+        </node>
+    </chain>
+</validation>

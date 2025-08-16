@@ -1,0 +1,14 @@
+[
+  {
+    "chainId": "user.create",
+    "node": [
+      {
+        "order": 1,
+        "script": "#param != null && #param.name != null",
+        "language": "SpEl",
+        "message": "参数不能为空",
+        "fastFail": true
+      }
+    ]
+  }
+]
