@@ -1,4 +1,4 @@
-package cn.easygd;
+package cn.easygd.example;
 
 import lombok.Data;
 

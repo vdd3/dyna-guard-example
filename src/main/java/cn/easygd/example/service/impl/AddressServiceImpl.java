@@ -1,6 +1,6 @@
-package cn.easygd.service.impl;
+package cn.easygd.example.service.impl;
 
-import cn.easygd.service.AddressService;
+import cn.easygd.example.service.AddressService;
 import org.springframework.stereotype.Service;
 
 /**

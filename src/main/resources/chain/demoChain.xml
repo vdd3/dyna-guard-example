@@ -2,7 +2,7 @@
 <validation>
     <chain id="user.update">
         <!-- 角色数据权限校验 -->
-        <node language="Groovy" order="1" message="校验失败">
+        <node language="Groovy" order="3" message="校验失败">
             <![CDATA[
             def workNo = param.workNo;
             def roleService = beanContext.getBean("roleService");
@@ -20,16 +20,41 @@
             ]]>
         </node>
         <!-- 再使用qle对修改的内容进行校验 -->
-        <node language="GuardScript" order="2" message="校验失败">
+        <node language="QLExpress4" order="1" message="校验失败">
+            <![CDATA[
+            if (!NotNull(param.name)) {return false;}
+            if (!NotNull(param.age)) {return false;}
+            if (!NotNull(param.sex)) {return false;}
+            if (!NotNull(param.address)) {return false;}
+            if ("111".equals(param.name)){
+                return false;
+            }
+            if (!InClosedRange(20, 60, param.age)) {return false;}
+            roleList = InvokeBeanMethod("roleService", "getDataRoleList", param.workNo);
+            if(roleList.size() == 0 || !('update' in roleList)) {return false;}
+            if (param.workNo in ['123','1234']){
+                return false;
+            }
+            return param.address == InvokeBeanMethod("addressService", "getAddress");
+            ]]>
+        </node>
+        <node language="Aviator" order="2" message="校验失败">
+            <![CDATA[
+            if (!NotNull(param.name)) {return false;}
+            if (!NotNull(param.age)) {return false;}
+            if (!NotNull(param.sex)) {return false;}
+            if (!NotNull(param.address)) {return false;}
+            if (!InClosedRange(20, 60, param.age)) {return false;}
+            return true;
+            ]]>
+        </node>
+    </chain>
+    <chain id="user.security">
+        <node language="QLExpress4" order="1" message="校验失败">
             <![CDATA[
             if (NotNull(param.name) == false) {return false;}
-            if (NotNull(param.age) == false) {return false;}
-            if (NotNull(param.sex) == false) {return false;}
-            if (NotNull(param.address) == false) {return false;}
-            if (InClosedRange(18, 60, param.age) == false) {return false;}
-            roleList = InvokeBeanMethod("roleService", "getDataRoleList", param.workNo);
-            if(roleList.size() == 0) {return false;}
-            return param.address == InvokeBeanMethod("addressService", "getAddress");
+            param.setName("22222");
+            return true;
             ]]>
         </node>
     </chain>

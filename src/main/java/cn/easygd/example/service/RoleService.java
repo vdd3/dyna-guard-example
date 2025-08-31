@@ -1,4 +1,4 @@
-package cn.easygd.service;
+package cn.easygd.example.service;
 
 import java.util.List;
 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation>
+    <chain id="QLExpress4_TEST_1">
+        <node language="QLExpress4" order="1" message="校验失败">
+            <![CDATA[
+            if (!NotNull(param.name)) {
+            return false;
+            }
+            return true;
+            ]]>
+        </node>
+    </chain>
+    <chain id="QLExpress4_TEST_2">
+        <node language="QLExpress4" order="1" message="校验失败">
+            <![CDATA[
+            test2List.add("1");
+            return true;
+            ]]>
+        </node>
+    </chain>
+    <chain id="QLExpress4_TEST_3">
+        <node language="QLExpress4" order="1" message="校验失败">
+            <![CDATA[
+            test3Map.put("1","1");
+            return true;
+            ]]>
+        </node>
+    </chain>
+    <chain id="QLExpress4_TEST_4">
+        <node language="QLExpress4" order="1" message="校验失败">
+            <![CDATA[
+            test4Set.add("2");
+            return true;
+            ]]>
+        </node>
+    </chain>
+    <chain id="QLExpress4_TEST_5">
+        <node language="QLExpress4" order="1" message="校验失败">
+            <![CDATA[
+            param.setName("22222");
+            return true;
+            ]]>
+        </node>
+    </chain>
+</validation>

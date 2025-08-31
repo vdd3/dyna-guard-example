@@ -1,9 +1,9 @@
-package cn.easygd.controller;
+package cn.easygd.example.controller;
 
-import cn.easygd.Request;
-import cn.easygd.Response;
-import cn.easygd.domain.Param;
-import cn.easygd.service.SimpleService;
+import cn.easygd.example.Request;
+import cn.easygd.example.Response;
+import cn.easygd.example.domain.Param;
+import cn.easygd.example.service.SimpleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -69,6 +69,18 @@ public class SimpleController {
     @PostMapping("/guard")
     public Response<Void> guard(@RequestBody Request<Param> request) {
         simpleService.guard(request.getParam());
+        return Response.success(null);
+    }
+
+    /**
+     * 熔断
+     *
+     * @param request 请求参数
+     * @return 响应参数
+     */
+    @PostMapping("/security")
+    public Response<Void> security(@RequestBody Request<Param> request) {
+        simpleService.security(request.getParam());
         return Response.success(null);
     }
 }

@@ -1,6 +1,6 @@
-package cn.easygd.service.impl;
+package cn.easygd.example.service.impl;
 
-import cn.easygd.service.RoleService;
+import cn.easygd.example.service.RoleService;
 import com.google.common.collect.Lists;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package cn.easygd.domain;
+package cn.easygd.example.domain;
 
 import lombok.Data;
 

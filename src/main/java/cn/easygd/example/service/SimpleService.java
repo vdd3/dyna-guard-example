@@ -1,13 +1,14 @@
-package cn.easygd.service;
+package cn.easygd.example.service;
 
-import cn.easygd.domain.Param;
+import cn.easygd.example.domain.Param;
+
+import java.util.List;
 
 /**
  * @author VD
  * @date 2025/8/16 14:41
  */
 public interface SimpleService {
-
 
     void oneNode(Param param);
 
@@ -16,4 +17,8 @@ public interface SimpleService {
     void sqlNode(Param param);
 
     void guard(Param param);
+
+    void security(Param param);
+
+    void moreParam(Param param, List<String> workNoList);
 }

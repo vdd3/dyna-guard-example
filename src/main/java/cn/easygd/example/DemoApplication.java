@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @author VD
  * @date 2025/8/16 11:11
  */
-@SpringBootApplication(scanBasePackages = {"cn.easygd"})
+@SpringBootApplication
 @EnableValidation
 @EnableTransactionManagement
 public class DemoApplication {

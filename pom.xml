@@ -18,6 +18,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <dyna-guard.version>0.0.5-beta</dyna-guard.version>
     </properties>
 
     <dependencies>
@@ -29,6 +30,16 @@
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,13 +58,28 @@
         <dependency>
             <groupId>cn.easygd</groupId>
             <artifactId>dyna-guard-spring-boot-starter</artifactId>
-            <version>0.0.2</version>
+            <version>${dyna-guard.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-api</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>cn.easygd</groupId>
+            <artifactId>dyna-guard-javascript</artifactId>
+            <version>${dyna-guard.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.easygd</groupId>
+            <artifactId>dyna-guard-groovy</artifactId>
+            <version>${dyna-guard.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.easygd</groupId>
+            <artifactId>dyna-guard-aviator</artifactId>
+            <version>${dyna-guard.version}</version>
         </dependency>
 
         <dependency>
